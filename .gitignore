@@ -1,0 +1,23 @@
+# Add local.properties to gitignore
+local.properties
+*.jks
+*.keystore
+
+# Gradle
+.gradle/
+build/
+app/build/
+
+# Android Studio
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+
+# Google Services - contains sensitive keys
+# app/google-services.json  <- uncomment to exclude from VCS (recommended)
+
+# macOS
+.DS_Store

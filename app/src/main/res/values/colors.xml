@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="status_synced">#2E7D32</color>
+    <color name="status_syncing">#1565C0</color>
+    <color name="status_failed">#C62828</color>
+    <color name="status_modified">#E65100</color>
+    <color name="status_pending">#616161</color>
+</resources>
