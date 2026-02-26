@@ -1,12 +1,9 @@
-# Firebase Storage Security Rules
-# Deploy with: firebase deploy --only storage
+# Firebase Storage is NOT used by DeviceSync.
+#
+# Files transfer directly between devices over the local WiFi network:
+#   - Child device runs an HTTP server (NanoHTTPD) serving its sync folder
+#   - Parent device connects to the child's IP over LAN and pulls files via OkHttp
+#
+# Firestore is used ONLY for sync pair configuration (settings backup).
+# You can delete this file and disable Firebase Storage in your Firebase project.
 
-rules_version = '2';
-service firebase.storage {
-  match /b/{bucket}/o {
-    // Users can only access their own sync data
-    match /syncs/{userId}/{allPaths=**} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-    }
-  }
-}

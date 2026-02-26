@@ -30,10 +30,9 @@ class SyncDetailViewModel @Inject constructor(
     val files: LiveData<List<SyncFile>> get() = _files
 
     fun loadPair(pairId: String) {
-        // Observe remote files from Firestore for this pair
-        _files = syncPairRepository.observeFilesForPair(uid, pairId).asLiveData()
+        // File sync state is tracked locally in Room — no Firestore file records
+        _files = syncFileRepository.getFilesForPair(pairId).asLiveData()
 
-        // Load pair details
         viewModelScope.launch {
             syncPairRepository.observeSyncPairs(uid).collect { pairs ->
                 _pair.value = pairs.find { it.id == pairId }

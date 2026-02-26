@@ -68,15 +68,18 @@ dependencies {
     implementation(libs.hilt.work)
     kapt(libs.hilt.work.compiler)
 
-    // Firebase
+    // Firebase (Auth + Firestore only — settings backup, no file storage)
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.firestore.ktx)
-    implementation(libs.firebase.storage.ktx)
     implementation(libs.firebase.analytics.ktx)
 
     // Google Sign-In
     implementation(libs.play.services.auth)
+
+    // Local WiFi network transfer
+    implementation(libs.nanohttpd)
+    implementation(libs.okhttp)
 
     // Coroutines
     implementation(libs.coroutines.core)

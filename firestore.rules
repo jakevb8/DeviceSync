@@ -1,4 +1,7 @@
 # Firestore Security Rules
+# Firestore stores ONLY sync pair configuration (settings backup).
+# No file data or file metadata is stored here — files transfer directly
+# over local WiFi between devices.
 # Deploy with: firebase deploy --only firestore:rules
 
 rules_version = '2';
@@ -9,14 +12,9 @@ service cloud.firestore {
     match /users/{userId} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
 
-      // Sync pairs sub-collection
+      // Sync pair config — settings only, no file records
       match /syncPairs/{pairId} {
         allow read, write: if request.auth != null && request.auth.uid == userId;
-
-        // Files within a sync pair
-        match /files/{fileId} {
-          allow read, write: if request.auth != null && request.auth.uid == userId;
-        }
       }
     }
   }
