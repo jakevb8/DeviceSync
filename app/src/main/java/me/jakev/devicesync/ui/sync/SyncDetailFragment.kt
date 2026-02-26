@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import me.jakev.devicesync.databinding.FragmentSyncDetailBinding
 import me.jakev.devicesync.util.FileUtil
@@ -21,7 +20,7 @@ class SyncDetailFragment : Fragment() {
     private var _binding: FragmentSyncDetailBinding? = null
     private val binding get() = _binding!!
     private val viewModel: SyncDetailViewModel by viewModels()
-    private val args: SyncDetailFragmentArgs by navArgs()
+    private val pairId: String by lazy { requireArguments().getString("pairId")!! }
     private lateinit var adapter: SyncFileAdapter
 
     override fun onCreateView(
@@ -34,7 +33,7 @@ class SyncDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.loadPair(args.pairId)
+        viewModel.loadPair(pairId)
 
         adapter = SyncFileAdapter()
         binding.rvFiles.layoutManager = LinearLayoutManager(requireContext())

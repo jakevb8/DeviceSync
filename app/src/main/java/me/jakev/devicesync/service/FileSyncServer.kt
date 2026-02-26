@@ -1,7 +1,5 @@
 package me.jakev.devicesync.service
 
-import android.content.DocumentFile
-import android.net.Uri
 import fi.iki.elonen.NanoHTTPD
 import timber.log.Timber
 import java.io.File

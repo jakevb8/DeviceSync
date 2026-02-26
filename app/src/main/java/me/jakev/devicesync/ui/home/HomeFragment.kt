@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import me.jakev.devicesync.R
+import me.jakev.devicesync.data.model.DeviceRole
 import me.jakev.devicesync.databinding.FragmentHomeBinding
 import me.jakev.devicesync.service.SyncForegroundService
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,12 +36,16 @@ class HomeFragment : Fragment() {
 
         adapter = SyncPairAdapter(
             onPairClick = { pair ->
-                val action = HomeFragmentDirections.actionHomeToSyncDetail(pair.id)
-                findNavController().navigate(action)
+                findNavController().navigate(
+                    R.id.action_home_to_syncDetail,
+                    bundleOf("pairId" to pair.id)
+                )
             },
             onSyncNow = { pair ->
                 requireContext().startForegroundService(
-                    SyncForegroundService.startIntent(requireContext(), pair.id, pair.childFolderPath)
+                    SyncForegroundService.startIntent(
+                        requireContext(), pair.id, pair.childFolderPath, DeviceRole.PARENT
+                    )
                 )
             }
         )
