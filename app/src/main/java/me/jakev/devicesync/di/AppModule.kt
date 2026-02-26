@@ -2,6 +2,7 @@ package me.jakev.devicesync.di
 
 import android.content.Context
 import androidx.room.Room
+import androidx.work.WorkManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import me.jakev.devicesync.data.local.SyncDatabase
@@ -40,4 +41,9 @@ object AppModule {
         Room.databaseBuilder(context, SyncDatabase::class.java, "devicesync.db")
             .fallbackToDestructiveMigration()
             .build()
+
+    @Provides
+    @Singleton
+    fun provideWorkManager(@ApplicationContext context: Context): WorkManager =
+        WorkManager.getInstance(context)
 }
