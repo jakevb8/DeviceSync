@@ -1,5 +1,5 @@
-# Add local.properties to gitignore
-local.properties
+# Secrets - never commit these
+app/google-services.json
 *.jks
 *.keystore
 
@@ -15,9 +15,6 @@ captures/
 .externalNativeBuild/
 .cxx/
 local.properties
-
-# Google Services - contains sensitive keys
-# app/google-services.json  <- uncomment to exclude from VCS (recommended)
 
 # macOS
 .DS_Store
