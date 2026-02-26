@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.devicesync.app"
+    namespace = "me.jakev.devicesync"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.devicesync.app"
+        applicationId = "me.jakev.devicesync"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.devicesync.app.ui.home.HomeFragment"
+        android:name="me.jakev.devicesync.ui.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home">
         <action
@@ -20,18 +20,18 @@
 
     <fragment
         android:id="@+id/syncPairsFragment"
-        android:name="com.devicesync.app.ui.home.HomeFragment"
+        android:name="me.jakev.devicesync.ui.home.HomeFragment"
         android:label="Pairs" />
 
     <fragment
         android:id="@+id/addSyncPairFragment"
-        android:name="com.devicesync.app.ui.sync.AddSyncPairFragment"
+        android:name="me.jakev.devicesync.ui.sync.AddSyncPairFragment"
         android:label="Add Sync Pair"
         tools:layout="@layout/fragment_add_sync_pair" />
 
     <fragment
         android:id="@+id/syncDetailFragment"
-        android:name="com.devicesync.app.ui.sync.SyncDetailFragment"
+        android:name="me.jakev.devicesync.ui.sync.SyncDetailFragment"
         android:label="Sync Detail"
         tools:layout="@layout/fragment_sync_detail">
         <argument

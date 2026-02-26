@@ -23,7 +23,7 @@ DeviceSync is an Android app (Kotlin, minSdk 26, targetSdk 34) that syncs a fold
 - Multiple devices logged in with the same Google account share the same Firestore data, so a new device immediately sees all registered parent pairs.
 
 ## Conventions
-- Package: `com.devicesync.app`
+- Package: `me.jakev.devicesync`
 - Fragment ViewBinding: use `_binding` nullable + `get()` pattern, nullify in `onDestroyView()`
 - Coroutines: `viewModelScope.launch` in ViewModels; `suspend` functions in repositories
 - Error handling: `Result<T>` return type in repositories
