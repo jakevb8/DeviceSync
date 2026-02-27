@@ -7,6 +7,21 @@ plugins {
     alias(libs.plugins.google.services)
 }
 
+fun getCommitCount(): Int {
+    return try {
+        val process = ProcessBuilder("git", "rev-list", "--count", "HEAD")
+            .directory(rootProject.rootDir)
+            .redirectOutput(ProcessBuilder.Redirect.PIPE)
+            .redirectError(ProcessBuilder.Redirect.PIPE)
+            .start()
+        process.waitFor().let {
+            if (it == 0) process.inputStream.bufferedReader().readText().trim().toInt() else 1
+        }
+    } catch (e: Exception) {
+        1
+    }
+}
+
 android {
     namespace = "me.jakev.devicesync"
     compileSdk = 35
@@ -15,7 +30,7 @@ android {
         applicationId = "me.jakev.devicesync"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
+        versionCode = getCommitCount()
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
