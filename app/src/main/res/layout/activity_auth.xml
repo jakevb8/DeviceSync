@@ -29,7 +29,16 @@
         android:text="Sync your folders across devices"
         android:textSize="14sp"
         android:alpha="0.7"
-        android:layout_marginBottom="48dp" />
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign in to backup your settings and sync between devices. Otherwise, all configuration stays on this device only."
+        android:textSize="12sp"
+        android:alpha="0.6"
+        android:textAlignment="center"
+        android:layout_marginBottom="32dp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -44,6 +53,14 @@
         android:layout_height="56dp"
         android:text="Sign in with Google"
         app:icon="@drawable/ic_google"
-        app:iconGravity="start" />
+        app:iconGravity="start"
+        android:layout_marginBottom="16dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSkip"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Continue without signing in" />
 
 </LinearLayout>

@@ -48,6 +48,11 @@ class AuthActivity : AppCompatActivity() {
         binding.btnSignInGoogle.setOnClickListener {
             signInLauncher.launch(googleSignInClient.signInIntent)
         }
+
+        binding.btnSkip.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
     }
 
     private fun setupGoogleSignIn() {

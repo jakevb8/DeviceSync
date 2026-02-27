@@ -44,11 +44,19 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
+        val isLoggedIn = auth.currentUser != null
+        menu.findItem(R.id.action_sign_in).isVisible = !isLoggedIn
+        menu.findItem(R.id.action_sign_out).isVisible = isLoggedIn
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.action_sign_in -> {
+                startActivity(Intent(this, AuthActivity::class.java))
+                finish()
+                true
+            }
             R.id.action_sign_out -> {
                 auth.signOut()
                 startActivity(Intent(this, AuthActivity::class.java))
