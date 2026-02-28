@@ -7,31 +7,53 @@
   <path
       android:fillColor="#1976D2"
       android:pathData="M54,54m-54,0a54,54 0,1 1,108 0a54,54 0,1 1,-108 0"/>
-  <!-- Left phone -->
+  <!-- Left phone body -->
   <path
       android:fillColor="#FFFFFF"
-      android:pathData="M32,28h12c1.1,0 2,0.9 2,2v48c0,1.1 -0.9,2 -2,2h-12c-1.1,0 -2,-0.9 -2,-2v-48c0,-1.1 0.9,-2 2,-2z"/>
-  <!-- Right phone -->
+      android:pathData="M22,32 h14 c1.1,0 2,0.9 2,2 v40 c0,1.1 -0.9,2 -2,2 h-14 c-1.1,0 -2,-0.9 -2,-2 v-40 c0,-1.1 0.9,-2 2,-2z"/>
+  <!-- Left phone screen (blue tint) -->
+  <path
+      android:fillColor="#BBDEFB"
+      android:pathData="M24,38 h10 v28 h-10z"/>
+  <!-- Left phone home button -->
+  <path
+      android:fillColor="#90CAF9"
+      android:pathData="M29,73 m-2.5,0 a2.5,2.5 0,1 1,5 0 a2.5,2.5 0,1 1,-5 0"/>
+  <!-- Right phone body -->
   <path
       android:fillColor="#FFFFFF"
-      android:pathData="M64,28h12c1.1,0 2,0.9 2,2v48c0,1.1 -0.9,2 -2,2h-12c-1.1,0 -2,-0.9 -2,-2v-48c0,-1.1 0.9,-2 2,-2z"/>
-  <!-- Left sync arrow -->
+      android:pathData="M72,32 h14 c1.1,0 2,0.9 2,2 v40 c0,1.1 -0.9,2 -2,2 h-14 c-1.1,0 -2,-0.9 -2,-2 v-40 c0,-1.1 0.9,-2 2,-2z"/>
+  <!-- Right phone screen (blue tint) -->
   <path
-      android:fillColor="#4CAF50"
-      android:pathData="M46,50h4l-6,8l6,8h-4v-6h-4v-4z"/>
-  <!-- Right sync arrow -->
+      android:fillColor="#BBDEFB"
+      android:pathData="M74,38 h10 v28 h-10z"/>
+  <!-- Right phone home button -->
   <path
-      android:fillColor="#4CAF50"
-      android:pathData="M62,50h4l-6,8l6,8h-4v-6h-4v-4z"/>
-  <!-- WiFi arcs -->
-  <path
-      android:strokeColor="#4CAF50"
-      android:strokeWidth="2"
-      android:fillColor="#00000000"
-      android:pathData="M48,68 Q54,62 60,68"/>
+      android:fillColor="#90CAF9"
+      android:pathData="M79,73 m-2.5,0 a2.5,2.5 0,1 1,5 0 a2.5,2.5 0,1 1,-5 0"/>
+  <!-- WiFi arc 1 (outermost) -->
   <path
       android:strokeColor="#4CAF50"
-      android:strokeWidth="2"
+      android:strokeWidth="3"
       android:fillColor="#00000000"
-      android:pathData="M50,71 Q54,67 58,71"/>
+      android:strokeLineCap="round"
+      android:pathData="M42,42 Q54,30 66,42"/>
+  <!-- WiFi arc 2 (middle) -->
+  <path
+      android:strokeColor="#4CAF50"
+      android:strokeWidth="3"
+      android:fillColor="#00000000"
+      android:strokeLineCap="round"
+      android:pathData="M45,49 Q54,40 63,49"/>
+  <!-- WiFi arc 3 (innermost) -->
+  <path
+      android:strokeColor="#4CAF50"
+      android:strokeWidth="3"
+      android:fillColor="#00000000"
+      android:strokeLineCap="round"
+      android:pathData="M48,56 Q54,50 60,56"/>
+  <!-- WiFi dot -->
+  <path
+      android:fillColor="#4CAF50"
+      android:pathData="M54,61 m-2.5,0 a2.5,2.5 0,1 1,5 0 a2.5,2.5 0,1 1,-5 0"/>
 </vector>
