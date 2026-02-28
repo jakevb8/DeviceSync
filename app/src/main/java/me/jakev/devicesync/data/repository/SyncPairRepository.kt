@@ -6,6 +6,7 @@ import me.jakev.devicesync.data.model.SyncPair
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.tasks.await
 import timber.log.Timber
 import javax.inject.Inject
@@ -28,17 +29,22 @@ class SyncPairRepository @Inject constructor(
      * Real-time Firestore updates mean any device signed in with the same account
      * immediately sees all registered parent pairs.
      */
-    fun observeSyncPairs(uid: String): Flow<List<SyncPair>> = callbackFlow {
-        val listener = userDoc(uid).collection("syncPairs")
-            .addSnapshotListener { snapshot, error ->
-                if (error != null) {
-                    Timber.e(error, "Error observing sync pairs")
-                    return@addSnapshotListener
+    fun observeSyncPairs(uid: String): Flow<List<SyncPair>> {
+        if (uid.isBlank()) {
+            return flowOf(emptyList())
+        }
+        return callbackFlow {
+            val listener = userDoc(uid).collection("syncPairs")
+                .addSnapshotListener { snapshot, error ->
+                    if (error != null) {
+                        Timber.e(error, "Error observing sync pairs")
+                        return@addSnapshotListener
+                    }
+                    val pairs = snapshot?.toObjects<SyncPair>() ?: emptyList()
+                    trySend(pairs)
                 }
-                val pairs = snapshot?.toObjects<SyncPair>() ?: emptyList()
-                trySend(pairs)
-            }
-        awaitClose { listener.remove() }
+            awaitClose { listener.remove() }
+        }
     }
 
     /**
