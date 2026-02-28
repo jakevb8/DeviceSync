@@ -1,0 +1,35 @@
+# CodeRabbit AI Code Review Configuration
+# Install the GitHub App: https://github.com/apps/coderabbitai
+# Free for open source and personal repositories
+
+version: "1"
+
+language: "en"
+
+early_access: false
+
+reviews:
+  profile: "default"
+  request_changes_workflow: true
+  high_level_summary: true
+  auto_title_placeholder: ""
+  poem: false
+
+  collapseWalkthrough: false
+  labeled_signatures: false
+
+  path_filters:
+    exclude:
+      - "**/*.md"
+      - "**/build/**"
+      - "**/generated/**"
+      - "**/.gradle/**"
+
+  path_instructions:
+    - path: "**/*.kt"
+      instructions: "Review Kotlin code for Android. Check for: null safety, proper coroutine usage, Jetpack/Hilt best practices, and Material Design guidelines."
+    - path: "**/*.xml"
+      instructions: "Review XML layouts for proper Android naming conventions and accessibility."
+
+chat:
+  auto_reply: false
