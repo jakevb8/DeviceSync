@@ -63,6 +63,13 @@ class MainActivity : AppCompatActivity() {
                 finish()
                 true
             }
+            R.id.action_settings -> {
+                // navigate to settings fragment; back button will return automatically
+                val navHostFragment = supportFragmentManager
+                    .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+                navHostFragment.navController.navigate(R.id.settingsFragment)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
